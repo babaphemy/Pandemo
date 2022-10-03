@@ -1,15 +1,26 @@
 import React, { useRef } from "react";
-import {
-  Animated,
-  View,
-  StyleSheet,
-  PanResponder,
-  Text,
-  Image,
-} from "react-native";
-
-const Pandemo = () => {
+import { Animated, View, StyleSheet, PanResponder, Image } from "react-native";
+import penny from "./assets/penny.png";
+const Pandemo = (props) => {
+  const { img } = props;
+  console.log(img);
   const pan = useRef(new Animated.ValueXY()).current;
+  const getImg = () => {
+    switch (img) {
+      case "penny":
+        return require("./assets/penny.png");
+      case "dime":
+        return require("./assets/dime.png");
+      case "quarter":
+        return require("./assets/quarter.png");
+      case "nickel":
+        return require("./assets/nickel.png");
+
+      default:
+        return require("./assets/penny.png");
+    }
+  };
+  const ppp = require("./assets/penny.png");
 
   const panResponder = useRef(
     PanResponder.create({
@@ -36,7 +47,7 @@ const Pandemo = () => {
         {...panResponder.panHandlers}
       >
         <View>
-          <Image source={require("./assets/penny.png")} style={styles.ball} />
+          <Image source={getImg()} style={styles.ball} />
         </View>
       </Animated.View>
     </View>

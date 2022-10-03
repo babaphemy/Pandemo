@@ -1,7 +1,6 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import DraggableView from "./DraggableView";
 import Pandemo from "./Pandemo";
+const imgs = ["penny", "dime", "nickel", "quarter"];
 
 export default function App() {
   return (
@@ -10,10 +9,10 @@ export default function App() {
         <Text style={styles.text}>Drop Item here</Text>
       </View>
       <View style={styles.row}>
-        <Pandemo />
-        <Pandemo />
-        <Pandemo />
-        <Pandemo />
+        <Pandemo img={imgs[0]} />
+        <Pandemo img={imgs[1]} />
+        <Pandemo img={imgs[2]} />
+        <Pandemo img={imgs[3]} />
       </View>
     </View>
   );
